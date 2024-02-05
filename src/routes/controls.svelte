@@ -1,5 +1,5 @@
 <script>
-  import { modes } from '$lib';
+  import { modes, notes } from '$lib';
 </script>
 
 <div id="controls">
@@ -7,18 +7,10 @@
 
   <label for="key">Key:</label>
   <select id="key">
-    <option>A</option>
-    <option>A♯</option>
-    <option>B</option>
-    <option>C</option>
-    <option>C♯</option>
-    <option>D</option>
-    <option>D♯</option>
-    <option selected>E</option>
-    <option>F</option>
-    <option>F♯</option>
-    <option>G</option>
-    <option>G♯</option>
+    {#each notes as note}
+      {@const name = note.getName() }
+      <option value={name}>{name}</option>
+    {/each}
   </select>
   <br />
   <label for="mode">Mode:</label>

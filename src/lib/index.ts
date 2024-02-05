@@ -1,4 +1,4 @@
-// place files you want to import through the `$lib` alias in this folder.
+import { Note } from 'chord-name';
 
 export type Mode = {
   id: string;
@@ -15,4 +15,20 @@ export const modes: Mode[] = [
   { id: 'mixolydian', name: 'Mixolydian', intervals: [] },
   { id: 'minor', name: 'Minor (Aeolian)', intervals: [] },
   { id: 'locrian', name: 'Locrian', intervals: [] },
+];
+
+const A = new Note('A');
+export const notes = [
+  A,
+  A.transpose(1),
+  A.transpose(2),
+  A.transpose(3),
+  A.transpose(4),
+  A.transpose(5),
+  A.transpose(6),
+  A.transpose(7),
+  A.transpose(8),
+  A.transpose(9),
+  A.transpose(10),
+  A.transpose(11),
 ];

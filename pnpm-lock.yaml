@@ -9,8 +9,8 @@ dependencies:
     specifier: 3.0.1
     version: 3.0.1(@sveltejs/kit@2.5.0)
   chord-name:
-    specifier: 1.0.2
-    version: 1.0.2
+    specifier: 2.0.0
+    version: 2.0.0
 
 devDependencies:
   '@sveltejs/adapter-auto':
@@ -908,8 +908,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /chord-name@1.0.2:
-    resolution: {integrity: sha512-k2p86/omNLeor/WvXKnIpFX/ewyAZ9E0r8WlyNVlCRKqKVgKHJT+C0ghJrusY2LBX8rDk/My1uTY1FB41DGnfA==}
+  /chord-name@2.0.0:
+    resolution: {integrity: sha512-aHfClfJFtJRawVxtGOIHtWASZtCY1ge8hobtCBxDZks/H+AR4ylOVpmYU5v060+1UE1N/kFkOklbz7A7jp3bRg==}
     dev: false
 
   /code-red@1.0.4:
