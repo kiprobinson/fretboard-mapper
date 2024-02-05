@@ -1,11 +1,10 @@
 <script>
-  import { modes } from "$lib";
-
+  import { modes } from '$lib';
 </script>
 
 <div id="controls">
   <h2>Options</h2>
-  
+
   <label for="key">Key:</label>
   <select id="key">
     <option>A</option>
@@ -21,14 +20,14 @@
     <option>G</option>
     <option>G♯</option>
   </select>
-  <br/>
+  <br />
   <label for="mode">Mode:</label>
   <select id="mode">
     {#each modes as mode}
-      <option value="{mode.id}">{mode.name}</option>
+      <option value={mode.id}>{mode.name}</option>
     {/each}
   </select>
-  <br/>
+  <br />
   <label for="tuning">Tuning:</label>
   <select id="tuning">
     <option value="E A D G B E" selected>Guitar - Standard</option>
@@ -46,7 +45,7 @@
     <option value="B E A D G">5-String Bass - Standard</option>
     <option value="CUSTOM">Custom</option>
   </select>
-  <br/>
+  <br />
   <label for="tuning-adjust">Alter tuning:</label>
   <select id="tuning-adjust">
     <option value="-4">down two steps</option>

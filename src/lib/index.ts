@@ -16,4 +16,3 @@ export const modes: Mode[] = [
   { id: 'minor', name: 'Minor (Aeolian)', intervals: [] },
   { id: 'locrian', name: 'Locrian', intervals: [] },
 ];
-

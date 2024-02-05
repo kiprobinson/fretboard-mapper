@@ -1,6 +1,5 @@
 <script>
-  import Controls from "./controls.svelte";
-
+  import Controls from './controls.svelte';
 </script>
 
 <Controls />
