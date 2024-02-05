@@ -1,0 +1,60 @@
+<script>
+  import { modes } from "$lib";
+
+</script>
+
+<div id="controls">
+  <h2>Options</h2>
+  
+  <label for="key">Key:</label>
+  <select id="key">
+    <option>A</option>
+    <option>A♯</option>
+    <option>B</option>
+    <option>C</option>
+    <option>C♯</option>
+    <option>D</option>
+    <option>D♯</option>
+    <option selected>E</option>
+    <option>F</option>
+    <option>F♯</option>
+    <option>G</option>
+    <option>G♯</option>
+  </select>
+  <br/>
+  <label for="mode">Mode:</label>
+  <select id="mode">
+    {#each modes as mode}
+      <option value="{mode.id}">{mode.name}</option>
+    {/each}
+  </select>
+  <br/>
+  <label for="tuning">Tuning:</label>
+  <select id="tuning">
+    <option value="E A D G B E" selected>Guitar - Standard</option>
+    <option value="D A D G B E">Guitar - Drop D</option>
+    <option value="D A D G B D">Guitar - Double Drop D</option>
+    <option value="D A D F# A D">Guitar - Open D</option>
+    <option value="D A D G A D">Guitar - DADGAD</option>
+    <option value="B E A D G B E">7-String Guitar - Standard</option>
+    <option value="B E A D F# B">Baritone Guitar</option>
+    <option value="G C E A">Ukulele - Standard</option>
+    <option value="A D F# B">Ukulele - D6</option>
+    <option value="D G B E">Ukulele - Baritone</option>
+    <option value="G D A E">Mandolin - Standard</option>
+    <option value="E A D G">Bass Guitar - Standard</option>
+    <option value="B E A D G">5-String Bass - Standard</option>
+    <option value="CUSTOM">Custom</option>
+  </select>
+  <br/>
+  <label for="tuning-adjust">Alter tuning:</label>
+  <select id="tuning-adjust">
+    <option value="-4">down two steps</option>
+    <option value="-3">down three half-steps</option>
+    <option value="-2">down whole step</option>
+    <option value="-1">down half-step</option>
+    <option value="0" selected>None</option>
+    <option value="1">up half-step</option>
+    <option value="2">up whole step</option>
+  </select>
+</div>
