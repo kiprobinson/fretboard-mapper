@@ -1,9 +1,13 @@
 <script lang="ts">
+  import { getNotesInScale, modesById, type ModeId } from '$lib';
   import { Note } from 'chord-name';
 
   export let root: Note;
-  export let noteIdsInScale: Set<number>;
+  export let modeId: ModeId;
   export let strings: Note[];
+
+  $: notesInScale = getNotesInScale(root, modesById[modeId]);
+  $: noteIdsInScale = new Set(notesInScale.map((note) => note.getId()));
 </script>
 
 <div id="fretboard">

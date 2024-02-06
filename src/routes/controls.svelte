@@ -1,12 +1,13 @@
-<script>
+<script lang="ts">
   import { modes, notes } from '$lib';
+  export let root: string;
 </script>
 
 <div id="controls">
   <h1>Options</h1>
 
   <label for="key">Key:</label>
-  <select id="key">
+  <select bind:value={root} id="key">
     {#each notes as note}
       {@const name = note.getName()}
       <option value={name}>{name}</option>
