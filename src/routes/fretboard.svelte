@@ -8,6 +8,11 @@
 
   $: notesInScale = getNotesInScale(root, modesById[modeId]);
   $: noteIdsInScale = new Set(notesInScale.map((note) => note.getId()));
+
+  const getNoteParts = (note: Note): { base: string; accidental: string } => {
+    const [base, accidental] = note.getName();
+    return { base, accidental };
+  };
 </script>
 
 <div id="fretboard">
@@ -18,8 +23,11 @@
           {@const note = string.transpose(fret)}
           <div class="string top">
             {#if noteIdsInScale.has(note.getId())}
+              {@const noteParts = getNoteParts(note)}
               <div class="note" class:root={root.equals(note)} class:fifth={root.interval(note) === 7}>
-                {note.toString()}
+                {noteParts.base}{#if noteParts.accidental}
+                  <sup>{noteParts.accidental}</sup>
+                {/if}
               </div>
             {/if}
           </div>
