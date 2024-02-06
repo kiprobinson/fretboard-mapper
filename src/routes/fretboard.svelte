@@ -1,19 +1,28 @@
 <script lang="ts">
   import { getNotesInScale, modesById, type ModeId } from '$lib';
-  import { Note } from 'chord-name';
+  import { Note, type ChordNameOptions } from 'chord-name';
 
   export let root: Note;
   export let modeId: ModeId;
   export let tuning: string;
-
-  $: notesInScale = getNotesInScale(root, modesById[modeId]);
-  $: noteIdsInScale = new Set(notesInScale.map((note) => note.getId()));
-
-  const getNoteParts = (note: Note): { base: string; accidental: string } => {
-    const [base, accidental] = note.getName();
+  
+  const getNoteFormatOptions = (notes: Note[]): ChordNameOptions => {
+    const withSharps = notes.map(note => note.getName({useFlats: false})[0]).sort().join('');
+    const withFlats = notes.map(note => note.getName({useFlats: true})[0]).sort().join('');
+    
+    return {
+      useFlats: !(withSharps === 'ABCDEFG' || withFlats !== 'ABCDEFG'),
+    };
+  };
+  
+  const getNoteParts = (note: Note, noteFormatOptions:ChordNameOptions): { base: string; accidental: string } => {
+    const [base, accidental] = note.getName(noteFormatOptions);
     return { base, accidental };
   };
 
+  $: notesInScale = getNotesInScale(root, modesById[modeId]);
+  $: noteIdsInScale = new Set(notesInScale.map((note) => note.getId()));
+  $: noteFormatOptions = getNoteFormatOptions(notesInScale);
   $: strings = tuning
     .split(' ')
     .reverse()
@@ -28,7 +37,7 @@
           {@const note = string.transpose(fret)}
           <div class="string top">
             {#if noteIdsInScale.has(note.getId())}
-              {@const noteParts = getNoteParts(note)}
+              {@const noteParts = getNoteParts(note, noteFormatOptions)}
               <div class="note" class:root={root.equals(note)} class:fifth={root.interval(note) === 7}>
                 {noteParts.base}{#if noteParts.accidental}
                   <sup>{noteParts.accidental}</sup>
