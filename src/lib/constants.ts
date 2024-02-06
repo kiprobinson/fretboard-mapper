@@ -29,3 +29,29 @@ export const modesById: Record<ModeId, Mode> = {
 };
 
 export const modes: Mode[] = (Object.keys(modesById) as Array<ModeId>).map((id) => modesById[id]);
+
+export const tunings = [
+  { value: 'E A D G B E', label: 'Guitar - Standard' },
+  { value: 'D A D G B E', label: 'Guitar - Drop D' },
+  { value: 'D A D G B D', label: 'Guitar - Double Drop D' },
+  { value: 'D A D F# A D', label: 'Guitar - Open D' },
+  { value: 'D A D G A D', label: 'Guitar - DADGAD' },
+  { value: 'B E A D G B E', label: '7-String Guitar - Standard' },
+  { value: 'B E A D F# B', label: 'Baritone Guitar' },
+  { value: 'G C E A', label: 'Ukulele - Standard' },
+  { value: 'A D F# B', label: 'Ukulele - D6' },
+  { value: 'D G B E', label: 'Ukulele - Baritone' },
+  { value: 'G D A E', label: 'Mandolin - Standard' },
+  { value: 'E A D G', label: 'Bass Guitar - Standard' },
+  { value: 'B E A D G', label: '5-String Bass - Standard' },
+];
+
+export const tuningAdjustments = [
+  { value: -4, label: 'Down two steps' },
+  { value: -3, label: 'Down three half-steps' },
+  { value: -2, label: 'Down whole steps' },
+  { value: -1, label: 'Down half-step' },
+  { value: 0, label: 'None' },
+  { value: 1, label: 'Up half-step' },
+  { value: 2, label: 'Up whole step' },
+];
