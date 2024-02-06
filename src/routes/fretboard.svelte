@@ -1,24 +1,12 @@
 <script lang="ts">
-  import { getNotesInScale, modesById, type ModeId } from '$lib';
-  import { Note, type ChordNameOptions } from 'chord-name';
+  import { type ModeId } from '$lib/types';
+  import { modesById } from '$lib/constants';
+  import { getNoteFormatOptions, getNoteParts, getNotesInScale } from '$lib/utils';
+  import { Note } from 'chord-name';
 
   export let root: Note;
   export let modeId: ModeId;
   export let tuning: string;
-  
-  const getNoteFormatOptions = (notes: Note[]): ChordNameOptions => {
-    const withSharps = notes.map(note => note.getName({useFlats: false})[0]).sort().join('');
-    const withFlats = notes.map(note => note.getName({useFlats: true})[0]).sort().join('');
-    
-    return {
-      useFlats: !(withSharps === 'ABCDEFG' || withFlats !== 'ABCDEFG'),
-    };
-  };
-  
-  const getNoteParts = (note: Note, noteFormatOptions:ChordNameOptions): { base: string; accidental: string } => {
-    const [base, accidental] = note.getName(noteFormatOptions);
-    return { base, accidental };
-  };
 
   $: notesInScale = getNotesInScale(root, modesById[modeId]);
   $: noteIdsInScale = new Set(notesInScale.map((note) => note.getId()));

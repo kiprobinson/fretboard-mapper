@@ -2,7 +2,7 @@
   import { Note } from 'chord-name';
   import Controls from './controls.svelte';
   import Fretboard from './fretboard.svelte';
-  import { type ModeId, modesById } from '$lib';
+  import { type ModeId } from '$lib/types';
 
   let root: string = 'E';
   let modeId: ModeId = 'major';

@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { modes, notes, type ModeId } from '$lib';
+  import { type ModeId } from '$lib/types';
+  import { modes, notes } from '$lib/constants';
   export let root: string;
   export let modeId: ModeId;
   export let tuning: string;
