@@ -4,6 +4,7 @@
   export let root: string;
   export let modeId: ModeId;
   export let tuning: string;
+  export let tuningAdjustment: number;
 
   const tunings = [
     { value: 'E A D G B E', label: 'Guitar - Standard' },
@@ -19,6 +20,16 @@
     { value: 'G D A E', label: 'Mandolin - Standard' },
     { value: 'E A D G', label: 'Bass Guitar - Standard' },
     { value: 'B E A D G', label: '5-String Bass - Standard' },
+  ];
+
+  const tuningAdjustments = [
+    { value: -4, label: 'Down two steps' },
+    { value: -3, label: 'Down three half-steps' },
+    { value: -2, label: 'Down whole steps' },
+    { value: -1, label: 'Down half-step' },
+    { value: 0, label: 'None' },
+    { value: 1, label: 'Up half-step' },
+    { value: 2, label: 'Up whole step' },
   ];
 </script>
 
@@ -49,14 +60,10 @@
   </select>
   <br />
   <label for="tuning-adjust">Alter tuning:</label>
-  <select id="tuning-adjust">
-    <option value="-4">down two steps</option>
-    <option value="-3">down three half-steps</option>
-    <option value="-2">down whole step</option>
-    <option value="-1">down half-step</option>
-    <option value="0" selected>None</option>
-    <option value="1">up half-step</option>
-    <option value="2">up whole step</option>
+  <select bind:value={tuningAdjustment} id="tuning-adjust">
+    {#each tuningAdjustments as tuningAdjustment}
+      <option value={tuningAdjustment.value}>{tuningAdjustment.label}</option>
+    {/each}
   </select>
   <br />
   <button id="print">&#x1F5A8; Print</button>

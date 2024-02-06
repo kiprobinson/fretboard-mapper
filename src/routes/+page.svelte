@@ -7,11 +7,12 @@
   let root: string = 'E';
   let modeId: ModeId = 'major';
   let tuning: string = 'E A D G B E';
+  let tuningAdjustment: number = 0;
 </script>
 
-<Controls bind:root bind:modeId bind:tuning />
+<Controls bind:root bind:modeId bind:tuning bind:tuningAdjustment />
 
-<Fretboard {tuning} {modeId} root={new Note(root)} />
+<Fretboard {tuning} {modeId} root={new Note(root)} {tuningAdjustment} />
 
 <div id="copyright">
   Fretboard Mapper created by Kip Robinson. Details at <a href="https://github.com/kiprobinson/fretboard-mapper"
