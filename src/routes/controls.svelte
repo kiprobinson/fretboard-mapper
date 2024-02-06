@@ -2,6 +2,23 @@
   import { modes, notes, type ModeId } from '$lib';
   export let root: string;
   export let modeId: ModeId;
+  export let tuning: string;
+
+  const tunings = [
+    { value: 'E A D G B E', label: 'Guitar - Standard' },
+    { value: 'D A D G B E', label: 'Guitar - Drop D' },
+    { value: 'D A D G B D', label: 'Guitar - Double Drop D' },
+    { value: 'D A D F# A D', label: 'Guitar - Open D' },
+    { value: 'D A D G A D', label: 'Guitar - DADGAD' },
+    { value: 'B E A D G B E', label: '7-String Guitar - Standard' },
+    { value: 'B E A D F# B', label: 'Baritone Guitar' },
+    { value: 'G C E A', label: 'Ukulele - Standard' },
+    { value: 'A D F# B', label: 'Ukulele - D6' },
+    { value: 'D G B E', label: 'Ukulele - Baritone' },
+    { value: 'G D A E', label: 'Mandolin - Standard' },
+    { value: 'E A D G', label: 'Bass Guitar - Standard' },
+    { value: 'B E A D G', label: '5-String Bass - Standard' },
+  ];
 </script>
 
 <div id="controls">
@@ -23,21 +40,11 @@
   </select>
   <br />
   <label for="tuning">Tuning:</label>
-  <select id="tuning">
-    <option value="E A D G B E" selected>Guitar - Standard</option>
-    <option value="D A D G B E">Guitar - Drop D</option>
-    <option value="D A D G B D">Guitar - Double Drop D</option>
-    <option value="D A D F# A D">Guitar - Open D</option>
-    <option value="D A D G A D">Guitar - DADGAD</option>
-    <option value="B E A D G B E">7-String Guitar - Standard</option>
-    <option value="B E A D F# B">Baritone Guitar</option>
-    <option value="G C E A">Ukulele - Standard</option>
-    <option value="A D F# B">Ukulele - D6</option>
-    <option value="D G B E">Ukulele - Baritone</option>
-    <option value="G D A E">Mandolin - Standard</option>
-    <option value="E A D G">Bass Guitar - Standard</option>
-    <option value="B E A D G">5-String Bass - Standard</option>
-    <option value="CUSTOM">Custom</option>
+  <select bind:value={tuning} id="tuning">
+    {#each tunings as tuningOption}
+      <option value={tuningOption.value}>{tuningOption.label}</option>
+    {/each}
+    <!-- <option value="CUSTOM">Custom</option> -->
   </select>
   <br />
   <label for="tuning-adjust">Alter tuning:</label>

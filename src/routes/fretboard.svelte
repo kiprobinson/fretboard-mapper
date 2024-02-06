@@ -4,7 +4,7 @@
 
   export let root: Note;
   export let modeId: ModeId;
-  export let strings: Note[];
+  export let tuning: string;
 
   $: notesInScale = getNotesInScale(root, modesById[modeId]);
   $: noteIdsInScale = new Set(notesInScale.map((note) => note.getId()));
@@ -13,6 +13,11 @@
     const [base, accidental] = note.getName();
     return { base, accidental };
   };
+
+  $: strings = tuning
+    .split(' ')
+    .reverse()
+    .map((n) => new Note(n));
 </script>
 
 <div id="fretboard">

@@ -6,13 +6,12 @@
 
   let root: string = 'E';
   let modeId: ModeId = 'major';
-
-  let strings: Note[] = [new Note('E'), new Note('B'), new Note('G'), new Note('D'), new Note('A'), new Note('E')];
+  let tuning: string = 'E A D G B E';
 </script>
 
-<Controls bind:root bind:modeId />
+<Controls bind:root bind:modeId bind:tuning />
 
-<Fretboard {strings} {modeId} root={new Note(root)} />
+<Fretboard {tuning} {modeId} root={new Note(root)} />
 
 <div id="copyright">
   Fretboard Mapper created by Kip Robinson. Details at <a href="https://github.com/kiprobinson/fretboard-mapper"
