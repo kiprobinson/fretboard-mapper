@@ -10,7 +10,7 @@
   let strings: Note[] = [new Note('E'), new Note('B'), new Note('G'), new Note('D'), new Note('A'), new Note('E')];
 </script>
 
-<Controls bind:root />
+<Controls bind:root bind:modeId />
 
 <Fretboard {strings} {modeId} root={new Note(root)} />
 

@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { modes, notes } from '$lib';
+  import { modes, notes, type ModeId } from '$lib';
   export let root: string;
+  export let modeId: ModeId;
 </script>
 
 <div id="controls">
@@ -15,7 +16,7 @@
   </select>
   <br />
   <label for="mode">Mode:</label>
-  <select id="mode">
+  <select bind:value={modeId} id="mode">
     {#each modes as mode}
       <option value={mode.id}>{mode.name}</option>
     {/each}
