@@ -3,12 +3,12 @@
 </script>
 
 <div id="controls">
-  <h2>Options</h2>
+  <h1>Options</h1>
 
   <label for="key">Key:</label>
   <select id="key">
     {#each notes as note}
-      {@const name = note.getName() }
+      {@const name = note.getName()}
       <option value={name}>{name}</option>
     {/each}
   </select>
@@ -48,4 +48,14 @@
     <option value="1">up half-step</option>
     <option value="2">up whole step</option>
   </select>
+  <br />
+  <button id="print">&#x1F5A8; Print</button>
 </div>
+
+<style>
+  @media print {
+    #controls {
+      display: none;
+    }
+  }
+</style>
