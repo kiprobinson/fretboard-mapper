@@ -10,34 +10,27 @@
 </script>
 
 <div class="fret fret-{fret}">
-  <div class="strings">
-    {#each strings as string}
-      {@const note = string.transpose(fret)}
-      <div class="string top">
-        {#if noteIdsInScale.has(note.getId())}
-          {@const noteParts = getNoteParts(note, noteFormatOptions)}
-          <div class="note" class:root={root.equals(note)} class:fifth={root.interval(note) === 7}>
-            {noteParts.base}{#if noteParts.accidental}
-              <sup>{noteParts.accidental}</sup>
-            {/if}
-          </div>
-        {/if}
-      </div>
-      <div class="string bottom"></div>
-    {/each}
-  </div>
+  {#each strings as string}
+    {@const note = string.transpose(fret)}
+    <div class="string top">
+      {#if noteIdsInScale.has(note.getId())}
+        {@const noteParts = getNoteParts(note, noteFormatOptions)}
+        <div class="note" class:root={root.equals(note)} class:fifth={root.interval(note) === 7}>
+          {noteParts.base}{#if noteParts.accidental}
+            <sup>{noteParts.accidental}</sup>
+          {/if}
+        </div>
+      {/if}
+    </div>
+    <div class="string bottom"></div>
+  {/each}
 </div>
 
 <style>
   .fret {
     width: calc(100% + 2px);
     height: calc(100% + 2px);
-  }
-
-  .strings {
     display: grid;
-    width: 100%;
-    height: 100%;
   }
   .string {
     border-left: 1px solid black;
@@ -53,8 +46,8 @@
     border-right-width: 3px;
   }
 
-  .strings .string:first-child,
-  .strings .string:last-child {
+  .string:first-child,
+  .string:last-child {
     border-left: none;
     /* note to self- can't do border-right: none because it messes up alignment. */
     border-right-color: rgba(255, 255, 255, 0);
