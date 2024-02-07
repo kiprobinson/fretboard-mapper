@@ -1,20 +1,19 @@
 import { Note } from 'chord-name';
 import type { Mode, ModeId } from './types';
 
-const A = new Note('A');
 export const notes: Note[] = [
-  A,
-  A.transpose(1),
-  A.transpose(2),
-  A.transpose(3),
-  A.transpose(4),
-  A.transpose(5),
-  A.transpose(6),
-  A.transpose(7),
-  A.transpose(8),
-  A.transpose(9),
-  A.transpose(10),
-  A.transpose(11),
+  new Note('A'),
+  new Note('A#'),
+  new Note('B'),
+  new Note('C'),
+  new Note('C#'),
+  new Note('D'),
+  new Note('D#'),
+  new Note('E'),
+  new Note('F'),
+  new Note('F#'),
+  new Note('G'),
+  new Note('G#'),
 ];
 
 // NOTE TO SELF: https://en.wikipedia.org/wiki/Mode_(music)#Modern_modes
