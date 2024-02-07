@@ -32,7 +32,6 @@
     grid-template-columns: 1fr repeat(12, 2fr);
     gap: 1px;
     width: 7in;
-    height: 1.5in;
     margin: 0.25in 0;
   }
 </style>

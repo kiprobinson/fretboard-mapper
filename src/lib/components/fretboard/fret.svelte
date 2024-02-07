@@ -29,13 +29,13 @@
 <style>
   .fret {
     width: calc(100% + 2px);
-    height: calc(100% + 2px);
     display: grid;
   }
   .string {
     border-left: 1px solid black;
     border-right: 1px solid black;
     position: relative;
+    height: 1em;
   }
   .string.top {
     border-bottom: 1px solid black;
@@ -55,7 +55,7 @@
 
   .note {
     position: absolute;
-    top: 0.25em;
+    bottom: -0.75em;
     right: 1px;
     width: 1.5em;
     height: 1.5em;
