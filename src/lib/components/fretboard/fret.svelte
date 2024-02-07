@@ -65,14 +65,18 @@
     padding-top: 1px;
     color: #666;
     background-color: white;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 300;
   }
   .note.root {
     color: black;
+    font-family: 'Fira Sans', sans-serif;
     font-weight: bold;
     border-width: 2px;
   }
   .note.fifth {
     color: black;
+    font-family: 'Fira Sans', sans-serif;
     font-weight: bold;
   }
 

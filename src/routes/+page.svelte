@@ -26,7 +26,7 @@
 <style>
   .title {
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 700;
     font-family: 'EB Garamond', serif;
   }
 

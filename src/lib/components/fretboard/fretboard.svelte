@@ -1,7 +1,7 @@
 <script lang="ts">
   import { type ModeId } from '$lib/types';
   import { modesById } from '$lib/constants';
-  import { getNoteFormatOptions, getNoteParts, getNotesInScale } from '$lib/utils';
+  import { getNoteFormatOptions, getNotesInScale } from '$lib/utils';
   import { Note } from 'chord-name';
   import Fret from './fret.svelte';
 
