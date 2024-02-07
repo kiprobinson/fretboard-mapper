@@ -55,23 +55,26 @@
 
   .note {
     position: absolute;
-    bottom: -0.75em;
+    bottom: -0.6rem;
     right: 1px;
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.2rem;
+    height: 1.2rem;
     border: 1px solid black;
-    border-radius: 0.75em;
-    padding-top: 1px;
+    border-radius: 0.6rem;
+    padding-top: 0.2rem;
     color: #666;
     background-color: white;
     font-family: 'Fira Sans Condensed', sans-serif;
     font-weight: 300;
+    font-size: 0.6rem;
   }
   .note.root {
     color: black;
     font-family: inherit;
     font-weight: bold;
     border-width: 2px;
+    /* note to self- this is the .note padding minus (.note.root border-width minus .note border-width) */
+    padding-top: calc(0.2rem - 1px);
   }
   .note.fifth {
     color: black;
