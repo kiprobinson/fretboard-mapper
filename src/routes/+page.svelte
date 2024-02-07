@@ -3,6 +3,7 @@
   import Controls from './controls.svelte';
   import Fretboard from './fretboard.svelte';
   import { type ModeId } from '$lib/types';
+  import { modesById } from '$lib/constants';
 
   let root: string = 'E';
   let modeId: ModeId = 'major';
@@ -11,6 +12,8 @@
 </script>
 
 <Controls bind:root bind:modeId bind:tuning bind:tuningAdjustment />
+
+<div class="title">{root} {modesById[modeId].name}</div>
 
 <Fretboard {tuning} {modeId} root={new Note(root)} {tuningAdjustment} />
 
@@ -21,11 +24,21 @@
 </div>
 
 <style>
+  .title {
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: 'EB Garamond', serif;
+  }
+
   .copyright {
     margin-top: 0.5rem;
     font-style: italic;
     font-size: 0.8rem;
     opacity: 0.5;
+  }
+
+  .title,
+  .copyright {
     width: 7in;
     text-align: center;
   }
