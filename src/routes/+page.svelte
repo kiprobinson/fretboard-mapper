@@ -14,17 +14,25 @@
 
 <Fretboard {tuning} {modeId} root={new Note(root)} {tuningAdjustment} />
 
-<div id="copyright">
+<div class="copyright">
   Fretboard Mapper created by Kip Robinson. Details at <a href="https://github.com/kiprobinson/fretboard-mapper"
-    >GitHub</a
+    ><span class="print-hidden">GitHub</span></a
   >.
 </div>
 
 <style>
-  #copyright {
+  .copyright {
     margin-top: 0.5rem;
     font-style: italic;
     font-size: 0.8rem;
-    color: #888;
+    opacity: 0.5;
+    width: 7in;
+    text-align: center;
+  }
+
+  @media print {
+    a::after {
+      content: attr(href);
+    }
   }
 </style>

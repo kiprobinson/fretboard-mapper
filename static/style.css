@@ -16,6 +16,27 @@ h1 {
   margin-bottom: 0.5rem;
 }
 
-a {
+a,
+a:visited,
+a:active {
+  color: blue;
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  .print-only {
+    display: inherit;
+  }
+
+  .print-hidden {
+    display: none;
+  }
 }

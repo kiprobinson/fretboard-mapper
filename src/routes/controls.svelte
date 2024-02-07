@@ -40,7 +40,7 @@
     {/each}
   </select>
   <br />
-  <button id="print">&#x1F5A8; Print</button>
+  <button on:click={() => window.print()}>&#x1F5A8; Print</button>
 </div>
 
 <style>
