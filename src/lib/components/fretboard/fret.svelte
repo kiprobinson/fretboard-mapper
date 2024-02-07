@@ -61,7 +61,6 @@
     height: 1.5em;
     border: 1px solid black;
     border-radius: 0.75em;
-    text-align: center;
     padding-top: 1px;
     color: #666;
     background-color: white;
@@ -70,13 +69,13 @@
   }
   .note.root {
     color: black;
-    font-family: 'Fira Sans', sans-serif;
+    font-family: inherit;
     font-weight: bold;
     border-width: 2px;
   }
   .note.fifth {
     color: black;
-    font-family: 'Fira Sans', sans-serif;
+    font-family: inherit;
     font-weight: bold;
   }
 

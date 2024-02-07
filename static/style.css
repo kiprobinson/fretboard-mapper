@@ -32,6 +32,10 @@ a:hover {
 }
 
 @media print {
+  a::after {
+    content: attr(href);
+  }
+
   .print-only {
     display: inherit;
   }
