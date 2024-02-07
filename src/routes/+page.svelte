@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Note } from 'chord-name';
-  import Controls from './controls.svelte';
-  import Fretboard from './fretboard.svelte';
+  import Controls from '$lib/components/controls.svelte';
+  import Fretboard from '$lib/components/fretboard/fretboard.svelte';
   import { type ModeId } from '$lib/types';
   import { modesById } from '$lib/constants';
 
