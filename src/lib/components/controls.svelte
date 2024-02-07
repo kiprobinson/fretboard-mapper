@@ -10,40 +10,49 @@
 <div id="controls">
   <h1>Options</h1>
 
-  <label for="key">Key:</label>
-  <select bind:value={root} id="key">
-    {#each notes as note}
-      {@const name = note.getName()}
-      <option value={name}>{name}</option>
-    {/each}
-  </select>
-  <br />
-  <label for="mode">Mode:</label>
-  <select bind:value={modeId} id="mode">
-    {#each modes as mode}
-      <option value={mode.id}>{mode.name}</option>
-    {/each}
-  </select>
-  <br />
-  <label for="tuning">Tuning:</label>
-  <select bind:value={tuning} id="tuning">
-    {#each tunings as tuningOption}
-      <option value={tuningOption.value}>{tuningOption.label}</option>
-    {/each}
-    <!-- <option value="CUSTOM">Custom</option> -->
-  </select>
-  <br />
-  <label for="tuning-adjust">Alter tuning:</label>
-  <select bind:value={tuningAdjustment} id="tuning-adjust">
-    {#each tuningAdjustments as tuningAdjustment}
-      <option value={tuningAdjustment.value}>{tuningAdjustment.label}</option>
-    {/each}
-  </select>
-  <br />
-  <button on:click={() => window.print()}>&#x1F5A8; Print</button>
+  <p>
+    <label for="key">Key:</label>
+    <select bind:value={root} id="key">
+      {#each notes as note}
+        {@const name = note.getName()}
+        <option value={name}>{name}</option>
+      {/each}
+    </select>
+  </p>
+  <p>
+    <label for="mode">Mode:</label>
+    <select bind:value={modeId} id="mode">
+      {#each modes as mode}
+        <option value={mode.id}>{mode.name}</option>
+      {/each}
+    </select>
+  </p>
+  <p>
+    <label for="tuning">Tuning:</label>
+    <select bind:value={tuning} id="tuning">
+      {#each tunings as tuningOption}
+        <option value={tuningOption.value}>{tuningOption.label}</option>
+      {/each}
+      <!-- <option value="CUSTOM">Custom</option> -->
+    </select>
+  </p>
+  <p>
+    <label for="tuning-adjust">Alter tuning:</label>
+    <select bind:value={tuningAdjustment} id="tuning-adjust">
+      {#each tuningAdjustments as tuningAdjustment}
+        <option value={tuningAdjustment.value}>{tuningAdjustment.label}</option>
+      {/each}
+    </select>
+  </p>
+  <p>
+    <button on:click={() => window.print()}>&#x1F5A8; Print</button>
+  </p>
 </div>
 
 <style>
+  p {
+    margin-top: 0.5rem;
+  }
   @media print {
     #controls {
       display: none;
