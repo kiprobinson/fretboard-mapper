@@ -14,6 +14,7 @@
   $: noteIdsInScale = new Set(notesInScale.map((note) => note.getId()));
   $: noteFormatOptions = getNoteFormatOptions(notesInScale);
   $: strings = tuning
+    .trim()
     .split(' ')
     .reverse()
     .map((n) => new Note(n).transpose(tuningAdjustment));

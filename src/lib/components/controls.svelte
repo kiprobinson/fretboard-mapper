@@ -5,6 +5,21 @@
   export let modeId: ModeId;
   export let tuning: string;
   export let tuningAdjustment: number;
+
+  let customTuning: string = 'E A D G B E';
+  let tuningSelection = tunings.some((t) => t.value === tuning) ? tuning : 'CUSTOM';
+
+  $: customTuningIsValid = /^ *[a-g][b#\u266D\u266F]?( [a-g][b#\u266D\u266F]?){2,7} *$/i.test(customTuning);
+
+  const handleTuningChange = () => {
+    if (tuningSelection === 'CUSTOM') {
+      if (customTuningIsValid) {
+        tuning = customTuning;
+      }
+    } else {
+      tuning = tuningSelection;
+    }
+  };
 </script>
 
 <div id="controls">
@@ -29,13 +44,19 @@
   </p>
   <p>
     <label for="tuning">Tuning:</label>
-    <select bind:value={tuning} id="tuning">
+    <select bind:value={tuningSelection} on:change={handleTuningChange} id="tuning">
       {#each tunings as tuningOption}
         <option value={tuningOption.value}>{tuningOption.label}</option>
       {/each}
-      <!-- <option value="CUSTOM">Custom</option> -->
+      <option value="CUSTOM">Custom</option>
     </select>
   </p>
+  {#if tuningSelection === 'CUSTOM'}
+    <p>
+      <label for="customTuning">Custom Tuning:</label>
+      <input type="text" bind:value={customTuning} on:input={handleTuningChange} class:invalid={!customTuningIsValid} />
+    </p>
+  {/if}
   <p>
     <label for="tuning-adjust">Alter tuning:</label>
     <select bind:value={tuningAdjustment} id="tuning-adjust">
@@ -52,6 +73,12 @@
 <style>
   p {
     margin-top: 0.5rem;
+  }
+  input.invalid {
+    outline-color: red;
+    outline-style: solid;
+    outline-width: 1px;
+    border-color: red;
   }
   @media print {
     #controls {
