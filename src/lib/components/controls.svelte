@@ -18,6 +18,7 @@
       }
     } else {
       tuning = tuningSelection;
+      customTuning = tuningSelection;
     }
   };
 </script>
