@@ -34,6 +34,6 @@
   "type": "module",
   "dependencies": {
     "@sveltejs/adapter-static": "3.0.1",
-    "chord-name": "2.0.0"
+    "chord-name": "3.0.0"
   }
 }
