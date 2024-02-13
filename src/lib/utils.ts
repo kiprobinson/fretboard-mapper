@@ -17,12 +17,8 @@ export const getNoteFormatOptions = (notes: Note[]): ChordNameOptions => {
 
   return {
     useFlats: !(withSharps === 'ABCDEFG' || withFlats !== 'ABCDEFG'),
+    useHtml: true,
   };
-};
-
-export const getNoteParts = (note: Note, noteFormatOptions: ChordNameOptions): { base: string; accidental: string } => {
-  const [base, accidental] = note.getName(noteFormatOptions);
-  return { base, accidental };
 };
 
 export const getChordsInScale = (root: Note, mode: Mode): Array<{ root: Note; chord: Chord }> => {

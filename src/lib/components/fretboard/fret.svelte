@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { getNoteParts } from '$lib/utils';
   import type { ChordNameOptions, Note } from 'chord-name';
 
   export let root: Note;
@@ -14,11 +13,8 @@
     {@const note = string.transpose(fret)}
     <div class="string top">
       {#if noteIdsInScale.has(note.getId())}
-        {@const noteParts = getNoteParts(note, noteFormatOptions)}
         <div class="note" class:root={root.equals(note)} class:fifth={root.interval(note) === 7}>
-          {noteParts.base}{#if noteParts.accidental}
-            <sup>{noteParts.accidental}</sup>
-          {/if}
+          {@html note.getName(noteFormatOptions)}
         </div>
       {/if}
     </div>

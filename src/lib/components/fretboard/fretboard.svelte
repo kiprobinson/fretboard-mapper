@@ -22,7 +22,7 @@
   $: chordsInScale = getChordsInScale(root, modesById[modeId]);
 </script>
 
-<div class="title">{root.getName(noteFormatOptions)} {modesById[modeId].name}</div>
+<div class="title">{@html root.getName(noteFormatOptions)} {modesById[modeId].name}</div>
 
 <div class="fretboard">
   {#each { length: 13 } as _, fret}
@@ -39,10 +39,10 @@
     {@const chordName = chordInfo.chord.getName(chordInfo.root, noteFormatOptions)}
 
     <tr>
-      <td>{chordName.name}</td>
-      <td>{chordName.intervals[0].note.getName(noteFormatOptions)}</td>
-      <td>{chordName.intervals[1].note.getName(noteFormatOptions)}</td>
-      <td>{chordName.intervals[2].note.getName(noteFormatOptions)}</td>
+      <td>{@html chordName.name}</td>
+      <td>{@html chordName.intervals[0].note.getName(noteFormatOptions)}</td>
+      <td>{@html chordName.intervals[1].note.getName(noteFormatOptions)}</td>
+      <td>{@html chordName.intervals[2].note.getName(noteFormatOptions)}</td>
     </tr>
   {/each}
 </table>
