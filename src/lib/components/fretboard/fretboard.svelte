@@ -1,7 +1,7 @@
 <script lang="ts">
   import { type ModeId } from '$lib/types';
   import { modesById } from '$lib/constants';
-  import { getNoteFormatOptions, getNotesInScale } from '$lib/utils';
+  import { getChordsInScale, getNoteFormatOptions, getNotesInScale } from '$lib/utils';
   import { Note } from 'chord-name';
   import Fret from './fret.svelte';
 
@@ -18,6 +18,8 @@
     .split(' ')
     .reverse()
     .map((n) => new Note(n).transpose(tuningAdjustment));
+
+  $: chordsInScale = getChordsInScale(root, modesById[modeId]);
 </script>
 
 <div class="title">{root.getName(noteFormatOptions)} {modesById[modeId].name}</div>
@@ -27,6 +29,23 @@
     <Fret {root} {strings} {fret} {noteFormatOptions} {noteIdsInScale} />
   {/each}
 </div>
+
+<table>
+  <tr>
+    <th>Chords</th>
+    <th colspan="3">Notes in chord</th>
+  </tr>
+  {#each chordsInScale as chordInfo}
+    {@const chordName = chordInfo.chord.getName(chordInfo.root, noteFormatOptions)}
+
+    <tr>
+      <td>{chordName.name}</td>
+      <td>{chordName.intervals[0].note.getName(noteFormatOptions)}</td>
+      <td>{chordName.intervals[1].note.getName(noteFormatOptions)}</td>
+      <td>{chordName.intervals[2].note.getName(noteFormatOptions)}</td>
+    </tr>
+  {/each}
+</table>
 
 <div class="copyright">
   Fretboard Mapper created by Kip Robinson. Details at <a href="https://github.com/kiprobinson/fretboard-mapper"

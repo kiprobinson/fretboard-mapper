@@ -1,4 +1,5 @@
 import type { ChordNameOptions, Note } from 'chord-name';
+import { Chord } from 'chord-name';
 import type { Mode } from './types';
 
 export const getNotesInScale = (root: Note, mode: Mode): Note[] =>
@@ -22,4 +23,18 @@ export const getNoteFormatOptions = (notes: Note[]): ChordNameOptions => {
 export const getNoteParts = (note: Note, noteFormatOptions: ChordNameOptions): { base: string; accidental: string } => {
   const [base, accidental] = note.getName(noteFormatOptions);
   return { base, accidental };
+};
+
+export const getChordsInScale = (root: Note, mode: Mode): Array<{ root: Note; chord: Chord }> => {
+  return mode.intervals.map((interval, i) => {
+    const chordRoot: Note = root.transpose(interval);
+    return {
+      root: chordRoot,
+      chord: new Chord([
+        chordRoot,
+        root.transpose(mode.intervals[(i + 2) % mode.intervals.length]),
+        root.transpose(mode.intervals[(i + 4) % mode.intervals.length]),
+      ]),
+    };
+  });
 };
