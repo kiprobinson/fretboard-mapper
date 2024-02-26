@@ -28,7 +28,7 @@
   {/each}
 </div>
 
-<style>
+<style lang="scss">
   .fret {
     width: calc(100% + 2px);
     display: grid;
@@ -55,48 +55,57 @@
     border-right-color: rgba(255, 255, 255, 0);
   }
 
+  
   .note {
+    $notePaddingTop: 0.2rem;
+    $noteBorderWidth: 1px;
+    
     position: absolute;
     bottom: -0.6rem;
     right: 1px;
     width: 1.2rem;
     height: 1.2rem;
-    border: 1px solid black;
+    border: $noteBorderWidth solid black;
     border-radius: 0.6rem;
-    padding-top: 0.2rem;
+    padding-top: $notePaddingTop;
     color: #666;
     background-color: white;
     font-family: 'Fira Sans Condensed', sans-serif;
     font-weight: 300;
     font-size: 0.6rem;
+    
+    &.root {
+      color: white;
+      background-color: black;
+      font-family: inherit;
+      font-weight: bold;
+      font-size: 0.8rem;
+      padding-top: 0.1rem;
+    }
+    &.fifth {
+      $fifthBorderWidth: 2px;
+      
+      color: white;
+      background-color: #66f;
+      font-family: inherit;
+      font-weight: bold;
+      border-width: $fifthBorderWidth;
+      /* note to self- this is the .note padding minus (.note.fifth border-width minus .note border-width) */
+      padding-top: calc($notePaddingTop - ($fifthBorderWidth - $noteBorderWidth));
+    }
+    &.major,
+    &.minor {
+      $majorBorderWidth: 2px;
+      
+      color: white;
+      background-color: #7b7;
+      font-family: inherit;
+      font-style: italic;
+      border-width: $majorBorderWidth;
+      padding-top: calc($notePaddingTop - ($majorBorderWidth - $noteBorderWidth));
+    }
   }
-  .note.root {
-    color: white;
-    background-color: black;
-    font-family: inherit;
-    font-weight: bold;
-    font-size: 0.8rem;
-    padding-top: 0.1rem;
-  }
-  .note.fifth {
-    color: white;
-    background-color: #66f;
-    font-family: inherit;
-    font-weight: bold;
-    border-width: 2px;
-    /* note to self- this is the .note padding minus (.note.fifth border-width minus .note border-width) */
-    padding-top: calc(0.2rem - 1px);
-  }
-  .note.major,
-  .note.minor {
-    color: white;
-    background-color: #7b7;
-    font-family: inherit;
-    font-style: italic;
-    border-width: 2px;
-    /* note to self- this is the .note padding minus (.note.major border-width minus .note border-width) */
-    padding-top: calc(0.2rem - 1px);
-  }
+  
 
   .fret-3,
   .fret-5,
