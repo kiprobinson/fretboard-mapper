@@ -106,19 +106,18 @@
     }
   }
   
-
   .fret-3,
   .fret-5,
   .fret-7,
   .fret-9 {
-    background-image: url('fretboard-dots-1.svg');
+    background-image: url('$lib/images/fretboard-dots-1.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   }
 
   .fret-12 {
-    background-image: url('fretboard-dots-2.svg');
+    background-image: url('$lib/images/fretboard-dots-2.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
