@@ -3,7 +3,6 @@
   import Controls from '$lib/components/controls.svelte';
   import Fretboard from '$lib/components/fretboard/fretboard.svelte';
   import { type ModeId } from '$lib/types';
-  import { modesById } from '$lib/constants';
 
   let root: string = 'E';
   let modeId: ModeId = 'major';

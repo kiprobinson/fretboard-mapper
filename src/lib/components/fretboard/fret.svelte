@@ -13,7 +13,13 @@
     {@const note = string.transpose(fret)}
     <div class="string top">
       {#if noteIdsInScale.has(note.getId())}
-        <div class="note" class:root={root.equals(note)} class:fifth={root.interval(note) === 7}>
+        <div
+          class="note"
+          class:root={root.equals(note)}
+          class:fifth={root.interval(note) === 7}
+          class:major={root.interval(note) === 4}
+          class:minor={root.interval(note) === 3}
+        >
           {@html note.getName(noteFormatOptions)}
         </div>
       {/if}
@@ -65,17 +71,31 @@
     font-size: 0.6rem;
   }
   .note.root {
-    color: black;
+    color: white;
+    background-color: black;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding-top: 0.1rem;
+  }
+  .note.fifth {
+    color: white;
+    background-color: #66f;
     font-family: inherit;
     font-weight: bold;
     border-width: 2px;
-    /* note to self- this is the .note padding minus (.note.root border-width minus .note border-width) */
+    /* note to self- this is the .note padding minus (.note.fifth border-width minus .note border-width) */
     padding-top: calc(0.2rem - 1px);
   }
-  .note.fifth {
-    color: black;
+  .note.major,
+  .note.minor {
+    color: white;
+    background-color: #7b7;
     font-family: inherit;
-    font-weight: bold;
+    font-style: italic;
+    border-width: 2px;
+    /* note to self- this is the .note padding minus (.note.major border-width minus .note border-width) */
+    padding-top: calc(0.2rem - 1px);
   }
 
   .fret-3,
