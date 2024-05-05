@@ -73,6 +73,8 @@
     font-family: 'Fira Sans Condensed', sans-serif;
     font-weight: 300;
     font-size: 0.6rem;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
     
     &.root {
       color: white;
