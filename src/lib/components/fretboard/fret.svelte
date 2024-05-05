@@ -57,7 +57,7 @@
 
   
   .note {
-    $notePaddingTop: 0.2rem;
+    $notePaddingTop: 0.1rem;
     $noteBorderWidth: 1px;
     
     position: absolute;
@@ -70,7 +70,6 @@
     padding-top: $notePaddingTop;
     color: #666;
     background-color: white;
-    font-family: 'Fira Sans Condensed', sans-serif;
     font-weight: 300;
     font-size: 0.6rem;
     print-color-adjust: exact;
@@ -79,17 +78,15 @@
     &.root {
       color: white;
       background-color: black;
-      font-family: inherit;
       font-weight: bold;
       font-size: 0.8rem;
-      padding-top: 0.1rem;
+      padding-top: 0;
     }
     &.fifth {
       $fifthBorderWidth: 2px;
       
       color: white;
       background-color: #66f;
-      font-family: inherit;
       font-weight: bold;
       border-width: $fifthBorderWidth;
       /* note to self- this is the .note padding minus (.note.fifth border-width minus .note border-width) */
@@ -101,7 +98,6 @@
       
       color: white;
       background-color: #7b7;
-      font-family: inherit;
       font-style: italic;
       border-width: $majorBorderWidth;
       padding-top: calc($notePaddingTop - ($majorBorderWidth - $noteBorderWidth));

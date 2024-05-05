@@ -57,7 +57,6 @@
   .title {
     font-size: 2rem;
     font-weight: 700;
-    font-family: 'EB Garamond', serif;
   }
 
   .fretboard {

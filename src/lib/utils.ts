@@ -17,7 +17,6 @@ export const getNoteFormatOptions = (notes: Note[]): ChordNameOptions => {
 
   return {
     useFlats: !(withSharps === 'ABCDEFG' || withFlats !== 'ABCDEFG'),
-    useHtml: true,
   };
 };
 
