@@ -112,6 +112,9 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 
   .fret-12 {
@@ -119,5 +122,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 </style>
