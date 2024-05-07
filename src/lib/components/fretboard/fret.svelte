@@ -57,7 +57,7 @@
 
   
   .note {
-    $notePaddingTop: 0.1rem;
+    $notePaddingTop: 0.18rem;
     $noteBorderWidth: 1px;
     
     position: absolute;
@@ -71,7 +71,8 @@
     color: #666;
     background-color: white;
     font-weight: 300;
-    font-size: 0.6rem;
+    font-size: 0.5rem;
+    font-family: 'M PLUS 1p', sans-serif;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
     
@@ -79,7 +80,7 @@
       color: white;
       background-color: black;
       font-weight: bold;
-      font-size: 0.8rem;
+      font-size: 0.725rem;
       padding-top: 0;
     }
     &.fifth {
@@ -98,7 +99,6 @@
       
       color: white;
       background-color: #7b7;
-      font-style: italic;
       border-width: $majorBorderWidth;
       padding-top: calc($notePaddingTop - ($majorBorderWidth - $noteBorderWidth));
     }

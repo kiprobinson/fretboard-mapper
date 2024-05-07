@@ -55,6 +55,7 @@
 
 <style>
   .title {
+    font-family: 'EB Garamond', serif;
     font-size: 2rem;
     font-weight: 700;
   }
