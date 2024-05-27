@@ -1,10 +1,11 @@
 <script lang="ts">
   import { type ModeId } from '$lib/types';
-  import { modes, notes, tunings, tuningAdjustments } from '$lib/constants';
+  import { modes, notes, tunings, tuningAdjustments, capoOptions } from '$lib/constants';
   export let root: string;
   export let modeId: ModeId;
   export let tuning: string;
   export let tuningAdjustment: number;
+  export let capo: number;
 
   let customTuning: string = 'E A D G B E';
   let tuningSelection = tunings.some((t) => t.value === tuning) ? tuning : 'CUSTOM';
@@ -63,6 +64,14 @@
     <select bind:value={tuningAdjustment} id="tuning-adjust">
       {#each tuningAdjustments as tuningAdjustment}
         <option value={tuningAdjustment.value}>{tuningAdjustment.label}</option>
+      {/each}
+    </select>
+  </p>
+  <p>
+    <label for="capo">Capo:</label>
+    <select bind:value={capo} id="capo">
+      {#each capoOptions as capoOption}
+        <option value={capoOption.value}>{capoOption.label}</option>
       {/each}
     </select>
   </p>

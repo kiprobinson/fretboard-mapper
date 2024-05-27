@@ -9,6 +9,7 @@
   export let modeId: ModeId;
   export let tuning: string;
   export let tuningAdjustment: number;
+  export let capo: number;
 
   $: notesInScale = getNotesInScale(root, modesById[modeId]);
   $: noteIdsInScale = new Set(notesInScale.map((note) => note.getId()));
@@ -24,9 +25,16 @@
 
 <div class="title">{@html root.getName(noteFormatOptions)} {modesById[modeId].name}</div>
 
+<div class="tuning">
+  Tuning: {strings.map((n) => n.getName(noteFormatOptions)).join(' ')}
+  {#if capo > 0}
+    <br />Capo {capo} (shown relative to capo)
+  {/if}
+</div>
+
 <div class="fretboard">
   {#each { length: 13 } as _, fret}
-    <Fret {root} {strings} {fret} {noteFormatOptions} {noteIdsInScale} />
+    <Fret {root} {strings} fret={fret + capo} {noteFormatOptions} {noteIdsInScale} isCapoFret={fret === 0} />
   {/each}
 </div>
 
@@ -53,11 +61,18 @@
   >.
 </div>
 
-<style>
+<style lang="scss">
   .title {
     font-family: 'EB Garamond', serif;
     font-size: 2rem;
     font-weight: 700;
+    margin-bottom: 0.125in;
+  }
+
+  .tuning {
+    font-weight: 200;
+    font-size: 0.8rem;
+    padding-left: 0.25in;
   }
 
   .fretboard {
@@ -74,6 +89,7 @@
     font-style: italic;
     font-size: 0.8rem;
     opacity: 0.5;
+    font-weight: 200;
   }
 
   .title,

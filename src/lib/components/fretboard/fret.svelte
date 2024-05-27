@@ -6,9 +6,10 @@
   export let fret: number;
   export let noteIdsInScale: Set<number>;
   export let noteFormatOptions: ChordNameOptions;
+  export let isCapoFret: boolean;
 </script>
 
-<div class="fret fret-{fret}">
+<div class="fret fret-{fret}" class:capo={isCapoFret}>
   {#each strings as string}
     {@const note = string.transpose(fret)}
     <div class="string top">
@@ -42,7 +43,7 @@
   .string.top {
     border-bottom: 1px solid black;
   }
-  .fret-0 .string {
+  .capo .string {
     border-left: none;
     border-bottom: none;
     border-right-width: 3px;
@@ -55,11 +56,10 @@
     border-right-color: rgba(255, 255, 255, 0);
   }
 
-  
   .note {
     $notePaddingTop: 0.18rem;
     $noteBorderWidth: 1px;
-    
+
     position: absolute;
     bottom: -0.6rem;
     right: 1px;
@@ -75,7 +75,7 @@
     font-family: 'M PLUS 1p', sans-serif;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
-    
+
     &.root {
       color: white;
       background-color: black;
@@ -85,7 +85,7 @@
     }
     &.fifth {
       $fifthBorderWidth: 2px;
-      
+
       color: white;
       background-color: #66f;
       font-weight: bold;
@@ -96,25 +96,33 @@
     &.major,
     &.minor {
       $majorBorderWidth: 2px;
-      
+
       color: white;
       background-color: #7b7;
       border-width: $majorBorderWidth;
       padding-top: calc($notePaddingTop - ($majorBorderWidth - $noteBorderWidth));
     }
   }
-  
+
   .fret-3,
   .fret-5,
   .fret-7,
-  .fret-9 {
+  .fret-9,
+  .fret-15,
+  .fret-17,
+  .fret-19,
+  .fret-21 {
     background-image: url('$lib/images/fretboard-dots-1.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    
+
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
+
+    &.capo {
+      background: none;
+    }
   }
 
   .fret-12 {
@@ -122,7 +130,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    
+
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }

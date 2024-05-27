@@ -8,8 +8,9 @@
   let modeId: ModeId = 'major';
   let tuning: string = 'E A D G B E';
   let tuningAdjustment: number = 0;
+  let capo: number = 0;
 </script>
 
-<Controls bind:root bind:modeId bind:tuning bind:tuningAdjustment />
+<Controls bind:root bind:modeId bind:tuning bind:tuningAdjustment bind:capo />
 
-<Fretboard {tuning} {modeId} root={new Note(root)} {tuningAdjustment} />
+<Fretboard {tuning} {modeId} root={new Note(root)} {tuningAdjustment} {capo} />
