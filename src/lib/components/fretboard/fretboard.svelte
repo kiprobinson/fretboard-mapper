@@ -26,7 +26,7 @@
 <div class="title">{@html root.getName(noteFormatOptions)} {modesById[modeId].name}</div>
 
 <div class="tuning">
-  Tuning: {strings.map((n) => n.getName(noteFormatOptions)).join(' ')}
+  Tuning: {strings.reverse().map((n) => n.getName(noteFormatOptions)).join(' ')}
   {#if capo > 0}
     <br />Capo {capo} (shown relative to capo)
   {/if}
