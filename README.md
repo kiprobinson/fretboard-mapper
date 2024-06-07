@@ -6,7 +6,7 @@ Utility to generate a printable fretboard map in a given key/mode.
 
 ## Running locally
 
-This project uses [pnpm] If you don't have it, install with:
+This project uses [pnpm]. If you don't have it, install with:
 
 ```bash
 npm install --global pnpm
