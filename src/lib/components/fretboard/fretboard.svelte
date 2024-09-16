@@ -41,7 +41,7 @@
   {/each}
 </div>
 
-<table>
+<table class="chord-chart">
   <tr>
     <th colspan="2">Chords</th>
     <th colspan="3">Notes in chord</th>
@@ -87,10 +87,14 @@
     width: 7in;
     margin: 0.25in 0;
   }
-  
-  .roman-numeral {
-    font-family:'Courier New', Courier, monospace;
-    padding-right: 0;
+
+  .chord-chart {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem;
+
+    .roman-numeral {
+      padding-right: 0;
+    }
   }
 
   .copyright {
