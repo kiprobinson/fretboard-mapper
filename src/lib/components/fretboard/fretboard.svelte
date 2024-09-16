@@ -1,7 +1,7 @@
 <script lang="ts">
   import { type ModeId } from '$lib/types';
   import { modesById } from '$lib/constants';
-  import { getChordsInScale, getNoteFormatOptions, getNotesInScale } from '$lib/utils';
+  import { getChordsInScale, getNoteFormatOptions, getNotesInScale, getRomanNumeralName } from '$lib/utils';
   import { Note } from 'chord-name';
   import Fret from './fret.svelte';
 
@@ -43,13 +43,14 @@
 
 <table>
   <tr>
-    <th>Chords</th>
+    <th colspan="2">Chords</th>
     <th colspan="3">Notes in chord</th>
   </tr>
-  {#each chordsInScale as chordInfo}
+  {#each chordsInScale as chordInfo, i}
     {@const chordName = chordInfo.chord.getName(chordInfo.root, noteFormatOptions)}
 
     <tr>
+      <td class="roman-numeral">{getRomanNumeralName(i + 1, chordName.name)}</td>
       <td>{@html chordName.name}</td>
       <td>{@html chordName.intervals[0].note.getName(noteFormatOptions)}</td>
       <td>{@html chordName.intervals[1].note.getName(noteFormatOptions)}</td>
@@ -85,6 +86,11 @@
     gap: 1px;
     width: 7in;
     margin: 0.25in 0;
+  }
+  
+  .roman-numeral {
+    font-family:'Courier New', Courier, monospace;
+    padding-right: 0;
   }
 
   .copyright {

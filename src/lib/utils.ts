@@ -1,5 +1,6 @@
 import type { ChordNameOptions, Note } from 'chord-name';
 import { Chord } from 'chord-name';
+import { romanNumerals } from './constants';
 import type { Mode } from './types';
 
 export const getNotesInScale = (root: Note, mode: Mode): Note[] =>
@@ -32,4 +33,18 @@ export const getChordsInScale = (root: Note, mode: Mode): Array<{ root: Note; ch
       ]),
     };
   });
+};
+
+export const getRomanNumeralName = (number: number, chordName: string): string => {
+  const name = romanNumerals[number];
+
+  if (/dim$/.test(chordName)) {
+    return `${name.toLowerCase()}°`;
+  }
+
+  if (/m$/.test(chordName)) {
+    return name.toLowerCase();
+  }
+
+  return name;
 };

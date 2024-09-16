@@ -69,3 +69,14 @@ export const capoOptions = [
   { value: 10, label: '10' },
   { value: 11, label: '11' },
 ];
+
+export const romanNumerals = [
+  '', // no `0`
+  'I',
+  'II',
+  'III',
+  'IV',
+  'V',
+  'VI',
+  'VII',
+];
