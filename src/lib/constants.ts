@@ -48,7 +48,7 @@ export const tunings = [
 export const tuningAdjustments = [
   { value: -4, label: 'Down two steps' },
   { value: -3, label: 'Down three half-steps' },
-  { value: -2, label: 'Down whole steps' },
+  { value: -2, label: 'Down whole step' },
   { value: -1, label: 'Down half-step' },
   { value: 0, label: 'None' },
   { value: 1, label: 'Up half-step' },
