@@ -68,7 +68,7 @@
 <style lang="scss">
   .title {
     font-family: 'EB Garamond', 'M PLUS 1p', serif;
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 0.125in;
   }
@@ -90,7 +90,6 @@
 
   .chord-chart {
     font-family: 'EB Garamond', 'M PLUS 1p', serif;
-    font-size: 1.2rem;
 
     .roman-numeral {
       padding-right: 0;
