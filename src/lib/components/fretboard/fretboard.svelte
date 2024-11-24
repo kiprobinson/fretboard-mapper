@@ -42,21 +42,23 @@
 </div>
 
 <table class="chord-chart">
-  <tr>
-    <th colspan="2">Chords</th>
-    <th colspan="3">Notes in chord</th>
-  </tr>
-  {#each chordsInScale as chordInfo, i}
-    {@const chordName = chordInfo.chord.getName(chordInfo.root, noteFormatOptions)}
-
+  <tbody>
     <tr>
-      <td class="roman-numeral">{getRomanNumeralName(i + 1, chordName.name)}</td>
-      <td>{@html chordName.name}</td>
-      <td>{@html chordName.intervals[0].note.getName(noteFormatOptions)}</td>
-      <td>{@html chordName.intervals[1].note.getName(noteFormatOptions)}</td>
-      <td>{@html chordName.intervals[2].note.getName(noteFormatOptions)}</td>
+      <th colspan="2">Chords</th>
+      <th colspan="3">Notes in chord</th>
     </tr>
-  {/each}
+    {#each chordsInScale as chordInfo, i}
+      {@const chordName = chordInfo.chord.getName(chordInfo.root, noteFormatOptions)}
+
+      <tr>
+        <td class="roman-numeral">{getRomanNumeralName(i + 1, chordName.name)}</td>
+        <td>{@html chordName.name}</td>
+        <td>{@html chordName.intervals[0].note.getName(noteFormatOptions)}</td>
+        <td>{@html chordName.intervals[1].note.getName(noteFormatOptions)}</td>
+        <td>{@html chordName.intervals[2].note.getName(noteFormatOptions)}</td>
+      </tr>
+    {/each}
+  </tbody>
 </table>
 
 <div class="copyright">
